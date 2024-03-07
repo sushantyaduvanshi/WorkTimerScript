@@ -38,7 +38,7 @@ def detected_activity(*args):
         timer_thread.start()
 
 def start_work_timer():
-    global work_timer_started, rest_timer_started
+    global work_timer_started, rest_timer_started, interrupt_timer_thread
     t = time()
     work_timer_started = True
     while (time() - t) < work_time_span:
@@ -47,6 +47,7 @@ def start_work_timer():
         if interrupt_timer_thread:
             print("\nTime thread interrupted!")
             work_timer_started = False
+            interrupt_timer_thread = False
             return
     print()
     work_timer_started = False
@@ -61,6 +62,7 @@ def start_work_timer():
         if interrupt_timer_thread:
             print("\nTime thread interrupted!")
             rest_timer_started = False
+            interrupt_timer_thread = False
             return
     print()
     rest_timer_started = False
