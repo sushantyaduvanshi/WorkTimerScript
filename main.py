@@ -4,7 +4,7 @@ from threading import Thread
 from pygame import mixer
 from time import time, sleep
 
-work_time_span = 40 * 60 # in sec
+work_time_span = 45 * 60 # in sec
 rest_time_span = 10 * 60 # in sec
 
 last_activity_detected_on = time()
